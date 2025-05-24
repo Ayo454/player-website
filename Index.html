@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/scripts.js" defer></script>
+    <title>player</title>
+    <meta name="description" content="Welcome to player, your go-to platform for audio content. Explore our extensive library of audio files, podcasts, and more.">
+    <meta name="keywords" content="audio, music, podcasts, player, streaming">
+    <!-- Replace YOUR_VERIFICATION_CODE with your actual code from Google Search Console -->
+    <meta name="google-site-verification" content="googledd28fee82fc46468" />
+</head>
+<body>
+    <header>
+        <h1>Welcome to player</h1>
+        <p>Your go-to platform for audio content.</p>
+    </header>
+    <div class="content">
+        <p>Explore our extensive library of audio files, podcasts, and more.</p>
+        <p>Stay tuned for updates and new features!</p>
+    </div>
+    <div class="Music">
+        <div class="Music-list">
+            <h1>Shallipopi - Laho (New Song)</h1>
+            <audio controls>
+                <source src="Shallipopi-Laho-New-Song-(TrendyBeatz.com).mp3" type="audio/mpeg">
+                Your browser does not support the audio element.  
+            </audio>
+            <button onclick="downloadAudio()">Download</button>
+        </div>
+        <div class="Music-list">
+            <h1>Olamide - Greenlight</h1>
+            <audio controls>
+                <source src="Olamide-Greenlight-[TrendyBeatz.com].mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <button onclick="downloadAudio()">Download</button>
+        </div>
+        <div class="Music-list">
+            <h1>Dj Selex - Best Of Olamide Mixtape</h1>
+            <audio controls>
+                <source src="Dj-Selex-Best-Of-Olamide-Mixtape-(TrendyBeatz.com).mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <button onclick="downloadAudio()">Download</button>
+        </div>
+        <div class="Music-list">
+            <h1>DJ Selex - Best Of Seyi Vibez Mixtape Vol 4</h1>
+            <audio controls>
+                <source src="DJ-Selex-Best-Of-Seyi-Vibez-Mixtape-Vol-4-(TrendyBeatz.com).mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <button onclick="downloadAudio()">Download</button>
+        </div>
+        <div class="Music-list">
+            <audio controls>
+                <source src="audio/sample-audio5.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <button onclick="downloadAudio()">Download</button>
+        </div>
+        <div class="Music-list">
+            <audio controls>
+                <source src="audio/sample-audio6.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <button onclick="downloadAudio()">Download</button>
+        </div>
+    </div>
+    <style>
+        /* styles everything */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .content {
+            margin: 20px 0;
+        }
+        .Music {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .Music-list {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            width: calc(33.333% - 20px);
+            box-sizing: border-box;
+        }
+        audio {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        @media (max-width: 768px) {
+            .Music-list {
+                width: calc(50% - 20px);
+            }
+        }
+        @media (max-width: 480px) {
+            .Music-list {
+                width: 100%;
+            }
+        }
+        /* Additional styles for the audio player */
+        audio {
+            display: block;
+            margin: 10px 0;
+        }
+        button {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .Music-list {
+                width: 100%;
+            }
+        }
+        @media (min-width: 601px) and (max-width: 1024px) {
+            .Music-list {
+                width: calc(50% - 20px);
+            }
+        }
+        @media (min-width: 1025px) {
+            .Music-list {
+                width: calc(33.333% - 20px);
+            }
+        }
+        /* Additional styles for the audio player */
+    </style>
+    <script>
+        //make the download button functional
+        function downloadAudio() {
+            const audio = event.target.previousElementSibling;
+            const source = audio.querySelector('source');
+            const url = source.src;
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = url.split('/').pop();
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+    </script>
+</body>
+</html>
